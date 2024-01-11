@@ -76,7 +76,7 @@ public class PatientsManage {
 
 	public static void main(String[] args) {
 
-		EventQueue.invokeLater(new Runnable() {    // ?? invokeLater 찾기
+		EventQueue.invokeLater(new Runnable() {    
 			public void run() {
 				try {
 					PatientsManage window = new PatientsManage();
