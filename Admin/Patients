@@ -164,7 +164,6 @@ public class Patients {
 	}
 	
 	public static void close(PreparedStatement psmt, Connection con) {
-		
 		try {
 			if(psmt != null )
 				psmt.close();
