@@ -76,7 +76,7 @@ public class PatientsManage {
 
 	public static void main(String[] args) {
 
-		EventQueue.invokeLater(new Runnable() {    
+		EventQueue.invokeLater(new Runnable() {    // ?? invokeLater 찾기
 			public void run() {
 				try {
 					PatientsManage window = new PatientsManage();
@@ -90,6 +90,11 @@ public class PatientsManage {
 
 	public PatientsManage() {
 		initialize();
+		showTable();
+		deleteTableRow();
+		updateTableRow();
+		saveData();
+		cancelDate();
 	}
 
 	private void initialize() {
@@ -340,13 +345,6 @@ public class PatientsManage {
 		btnCancel = new JButton("취소");
 		btnCancel.setBounds(952, 33, 100, 30);
 		panelBottom.add(btnCancel);
-
-		// 이벤트
-		showTable();
-		deleteTableRow();
-		updateTableRow();
-		saveData();
-		cancelDate();
 	}
 
 	public void showTable() {
@@ -360,7 +358,7 @@ public class PatientsManage {
 				return false;
 			}
 		};
-		table.setBounds(50, 50, 975, 255);
+		table.setBounds(50, 50, 1005, 255);
 
 		// 테이블 셀 값들 가운데 정렬하기
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -386,9 +384,9 @@ public class PatientsManage {
 		colModel.getColumn(0).setPreferredWidth(10);
 		colModel.getColumn(1).setPreferredWidth(30);
 		colModel.getColumn(2).setPreferredWidth(55);
-		colModel.getColumn(3).setPreferredWidth(30);
-		colModel.getColumn(4).setPreferredWidth(30);
-		colModel.getColumn(5).setPreferredWidth(30);
+		colModel.getColumn(3).setPreferredWidth(50);
+		colModel.getColumn(4).setPreferredWidth(50);
+		colModel.getColumn(5).setPreferredWidth(50);
 		colModel.getColumn(6).setPreferredWidth(50);
 		colModel.getColumn(7).setPreferredWidth(50);
 		colModel.getColumn(8).setPreferredWidth(50);
