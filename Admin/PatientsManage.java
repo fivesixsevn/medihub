@@ -33,7 +33,6 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 public class PatientsManage {
-
 	public JFrame frame;
 	private JTextField searchTextField;
 	private DefaultTableModel tableModel;  // 테이블 데이터 편집하기 위해 필요
@@ -75,8 +74,7 @@ public class PatientsManage {
 	private int selectedIdx;
 
 	public static void main(String[] args) {
-
-		EventQueue.invokeLater(new Runnable() {    // ?? invokeLater 찾기
+		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					PatientsManage window = new PatientsManage();
