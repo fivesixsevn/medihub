@@ -72,7 +72,7 @@ public class DocumentItem {
 		return medicalReport;
 	}
 	public void setMedicalReport(String m) {
-		if (m == "O") {
+		if ("O".equals(m)) { // not m == "O"
 			this.medicalReport = "20000원";
 		} else this.medicalReport = m;
 		
