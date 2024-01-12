@@ -103,7 +103,6 @@ public class Patients {
 			connection = DriverManager.getConnection(url, user, pwd);
 			System.out.println("DB 연결 완료");
 			return connection;
-
 		} catch (ClassNotFoundException e) {
 			System.out.println("JDBC 드라이버 로드 에러");
 			return null;
