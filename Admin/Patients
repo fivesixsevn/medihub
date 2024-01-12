@@ -83,7 +83,7 @@ public class Patients {
 			con = getConnection();
 			psmt = con.prepareStatement("SELECT id, name, number, medicalreport, payment, office, disease, medicine, doses, fee FROM patients");
 			ResultSet rs = psmt.executeQuery();
-			ArrayList<String[]> list = new ArrayList<String[]>();   // 여기부터 잘 이해가 안 된다.
+			ArrayList<String[]> list = new ArrayList<String[]>();
 			while(rs.next()) {
 				list.add(new String[] {
 						rs.getString("id"),
