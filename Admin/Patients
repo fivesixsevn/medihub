@@ -17,7 +17,7 @@ public class Patients {
 			String payment, String office, String disease, String medicine, String doses, String fee) {
 			String updateQuery = "UPDATE patients "
 					+ "SET id = ?, name = ?, number = ?, medicalreport = ?, payment = ?, office = ?, disease = ?, medicine = ?, doses = ?, fee = ? "
-					+ "WHERE id = ?, name = ?, number = ?, medicalreport = ?, payment = ?, office = ?, disease = ?, medicine = ?, doses = ?, fee = ?";
+					+ "WHERE id = ?";
 			try (PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
 				preparedStatement.setString(1, id);
 				preparedStatement.setString(2, name);
