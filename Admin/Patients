@@ -29,6 +29,8 @@ public class Patients {
 	            preparedStatement.setString(8, medicine);
 	            preparedStatement.setString(9, doses);
 	            preparedStatement.setString(10, fee);
+	            preparedStatement.setString(11, id);
+	            
 	            // 수정된 데이터베이스 업데이트 쿼리 실행
                 preparedStatement.executeUpdate();
                 System.out.println("환자 정보가 변경되었습니다");
@@ -103,6 +105,7 @@ public class Patients {
 			connection = DriverManager.getConnection(url, user, pwd);
 			System.out.println("DB 연결 완료");
 			return connection;
+
 		} catch (ClassNotFoundException e) {
 			System.out.println("JDBC 드라이버 로드 에러");
 			return null;
