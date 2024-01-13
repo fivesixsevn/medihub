@@ -22,6 +22,7 @@ public class DBSearch {
 				pstmt.setString(1, input); //접수주민번호
 				try (ResultSet rs = pstmt.executeQuery()) { //rs = pstmt.executeQuery() 쿼리에서 식별한 레코드 결과
 					if (rs.next()) {
+						int id = rs.getInt("id");
 						String name = rs.getString("name"); //레코드의 각 칼럼 정보를 가져와 저장.
 						String number = rs.getString("number");
 						String medicalReport = rs.getString("medicalreport");
@@ -31,6 +32,7 @@ public class DBSearch {
 						String doses = rs.getString("doses");
 						String fee = rs.getString("fee"); 
 						
+						PatientDoc.setID(id); 	//추가
 						PatientDoc.setName(name); //가져온 정보를 토대로 환자 문서 정보 구성
 						PatientDoc.setNumber(number);
 						PatientDoc.setMedicalReport(medicalReport);
