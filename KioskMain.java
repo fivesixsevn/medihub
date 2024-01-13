@@ -29,15 +29,17 @@ public class KioskMain extends JFrame {
     public KioskMain() {
     	getContentPane().setBackground(Color.WHITE);
     	getContentPane().setLayout(null);
-    	
+
+	/* 접수 버튼 생성 */
     	Button btnrg = new Button("접수");
     	btnrg.setForeground(Color.WHITE);
     	btnrg.setFont(new Font("나눔스퀘어 Bold", Font.BOLD, 40));
     	btnrg.setBackground(new Color(0, 255, 128));
     	btnrg.setBounds(110, 300, 300, 300);
     	getContentPane().add(btnrg);
-    	
-    	/*btnrg.addActionListener(new ActionListener() {
+
+	/* 접수 화면으로 전환 */
+    	btnrg.addActionListener(new ActionListener() {
     			@Override
     			public void actionPerformed(ActionEvent e) {
     				dispose();
@@ -45,7 +47,7 @@ public class KioskMain extends JFrame {
     				//new AdminMain();
     			}
     	});
-    	getContentPane().add(btnrg);*/
+    	getContentPane().add(btnrg);
     	
     	/* 관리자모드 버튼 생성 */
     	Button btnAdmin = new Button("관리자 모드");
