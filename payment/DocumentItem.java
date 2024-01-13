@@ -1,6 +1,7 @@
 package oop_kiosk_medihub;
 
 public class DocumentItem {
+	private int id;		//added for query update
 	private String name;
 	private String number;
 	private String medicalReport;
@@ -11,6 +12,12 @@ public class DocumentItem {
 	private String doses;
 	private String fee;
 	
+	public int getID() { //added
+		return id;
+	}
+	public void setID(int id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
