@@ -139,9 +139,12 @@ public class PatientsManage {
 
 
 		/* 검색 필드 배치하기 */
-		JButton btnSearch = new JButton("검색어 입력"); 			// 검색어 입력 레이블을 버튼으로 구현(버튼 모양이 레이블보다 예뻐서)
-		btnSearch.setBounds(161, 10, 120, 30);         			// 검색어 입력 레이블 위치와 크기 -> (x좌표, y좌표, 넓이, 높이)
-		panelMedium.add(btnSearch);					 			// 상단 패널에 붙이기
+		JButton btnSearch = new JButton("검색어 입력"); 	   				// 검색어 입력 레이블을 버튼으로 구현(버튼 모양이 레이블보다 예뻐서)
+		btnSearch.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 15));
+		btnSearch.setBounds(161, 10, 120, 30);    						// 검색어 입력 레이블 위치와 크기 -> (x좌표, y좌표, 넓이, 높이)
+		btnSearch.setBackground(new Color(32, 178, 170));
+		btnSearch.setForeground(Color.WHITE);
+		panelMedium.add(btnSearch);					 					// 상단 패널에 붙이기
 
 		searchTextField = new JTextField();   		 			// 검색어 입력 텍스트필드 생성
 		searchTextField.setBounds(290, 10, 857, 30);			// 검색어 입력 텍스트필드 위치와 크기
@@ -161,22 +164,30 @@ public class PatientsManage {
 		/* 제목, 버튼 배치하기 */
 		JLabel Label = new JLabel("MediHub");
 		Label.setBackground(new Color(240, 240, 240));
-		Label.setBounds(10, 3, 236, 55);
-		Label.setForeground(new Color(0, 255, 128));
-		Label.setFont(new Font("맑은 고딕", Font.BOLD, 50));
+		Label.setBounds(15, 15, 236, 55);
+		Label.setForeground(new Color(32, 178, 170));
+		Label.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 50));
 		panelTop.add(Label);
 		
 		btnUpdate = new JButton("수정");
-		btnUpdate.setBounds(952, 220, 100, 30);
+		btnUpdate.setBounds(952, 220, 130, 30);
+		btnUpdate.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
+		btnUpdate.setBackground(new Color(32, 178, 170));
+		btnUpdate.setForeground(Color.WHITE);
 		panelMedium.add(btnUpdate);
 
 		btnDelete = new JButton("삭제");
-		btnDelete.setBounds(1055, 220, 100, 30);
+		btnDelete.setBounds(1085, 220, 130, 30);
+		btnDelete.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
+		btnDelete.setBackground(new Color(32, 178, 170));
+		btnDelete.setForeground(Color.WHITE);
 		panelMedium.add(btnDelete);
 		
 		JButton btnBefore = new JButton("로그아웃");
-		btnBefore.setFont(new Font("맑은 고딕", Font.BOLD, 15));
-		btnBefore.setBounds(1200, 15, 165, 40);
+		btnBefore.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
+		btnBefore.setBounds(1200, 15, 195, 40);
+		btnBefore.setBackground(new Color(32, 178, 170));
+		btnBefore.setForeground(Color.WHITE);
 		panelTop.add(btnBefore);	
 		
 		btnBefore.addActionListener(new ActionListener() {
@@ -203,21 +214,22 @@ public class PatientsManage {
 
 		/* 상세정보 관련 Label과 TextField 배치하기 */
 		JLabel details = new JLabel("  상세 정보");
-		details.setFont(new Font("맑은 고딕", Font.BOLD, 15));
-		details.setBounds(190, 30, 100, 30);
+		details.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 26));
+		details.setBounds(180, 15, 120, 30);
 		panelBottom.add(details);
 		
+		//JLabel label = new JLabel("ID : "); 형식으로 Label 정의한 것들 고쳐야함.
 		idLabel = new JTextField();
 		idLabel.setEditable(false);
 		idLabel.setText(" id ");
-		idLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		idLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
 		idLabel.setBounds(190, 70, 130, 40);
 		idLabel.setHorizontalAlignment(JLabel.CENTER);
 		panelBottom.add(idLabel);
 
 		nameLabel = new JTextField();
 		nameLabel.setEditable(false);
-		nameLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		nameLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
 		nameLabel.setText("환 자 이 름");
 		nameLabel.setBounds(190, 120, 130, 40);
 		nameLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -227,7 +239,7 @@ public class PatientsManage {
 		numberLabel = new JTextField();
 		numberLabel.setEditable(false);
 		numberLabel.setText("주 민 번 호");
-		numberLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		numberLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		numberLabel.setColumns(10);
 		numberLabel.setBounds(190, 170, 130, 40);
 		numberLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -236,7 +248,7 @@ public class PatientsManage {
 		medicalreportLabel = new JTextField();
 		medicalreportLabel.setEditable(false);
 		medicalreportLabel.setText("진단서 출력여부");
-		medicalreportLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		medicalreportLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		medicalreportLabel.setColumns(10);
 		medicalreportLabel.setBounds(190, 220, 130, 40);
 		medicalreportLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -245,7 +257,7 @@ public class PatientsManage {
 		paymentLabel = new JTextField();
 		paymentLabel.setEditable(false);
 		paymentLabel.setText("수납 여부");
-		paymentLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		paymentLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		paymentLabel.setColumns(10);
 		paymentLabel.setBounds(190, 270, 130, 40);
 		paymentLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -254,7 +266,7 @@ public class PatientsManage {
 		officeLabel = new JTextField();
 		officeLabel.setEditable(false);
 		officeLabel.setText("진 료 실");
-		officeLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		officeLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		officeLabel.setColumns(10);
 		officeLabel.setBounds(513, 70, 130, 40);
 		officeLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -263,7 +275,7 @@ public class PatientsManage {
 		diseaseLabel = new JTextField();
 		diseaseLabel.setEditable(false);
 		diseaseLabel.setText("진단 결과");
-		diseaseLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		diseaseLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		diseaseLabel.setColumns(10);
 		diseaseLabel.setBounds(513, 120, 130, 40);
 		diseaseLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -272,7 +284,7 @@ public class PatientsManage {
 		medicineLabel = new JTextField();
 		medicineLabel.setEditable(false);
 		medicineLabel.setText("처 방 약");
-		medicineLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		medicineLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		medicineLabel.setColumns(10);
 		medicineLabel.setBounds(513, 170, 130, 40);
 		medicineLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -281,7 +293,7 @@ public class PatientsManage {
 	    dosesLabel = new JTextField();
 	    dosesLabel.setEditable(false);
 	    dosesLabel.setText("복 용 횟 수");
-	    dosesLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+	    dosesLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 	    dosesLabel.setColumns(10);
 	    dosesLabel.setBounds(513, 220, 130, 40);
 	    dosesLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -290,7 +302,7 @@ public class PatientsManage {
 		feeLabel = new JTextField();
 	    feeLabel.setEditable(false);
 	    feeLabel.setText("금 액");
-	    feeLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+	    feeLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 	    feeLabel.setColumns(10);
 	    feeLabel.setBounds(513, 270, 130, 40);
 	    feeLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -359,11 +371,17 @@ public class PatientsManage {
 		panelBottom.add(feeTextfield);
 
 		btnSave = new JButton("저장");
-		btnSave.setBounds(1055, 33, 100, 30);
+		btnSave.setBounds(1085, 33, 130, 30);
+		btnSave.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
+		btnSave.setBackground(new Color(32, 178, 170));
+		btnSave.setForeground(Color.WHITE);
 		panelBottom.add(btnSave);
 
 		btnCancel = new JButton("취소");
-		btnCancel.setBounds(952, 33, 100, 30);
+		btnCancel.setBounds(952, 33, 130, 30);
+		btnCancel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
+		btnCancel.setBackground(new Color(32, 178, 170));
+		btnCancel.setForeground(Color.WHITE);
 		panelBottom.add(btnCancel);
 	}
 
@@ -403,7 +421,7 @@ public class PatientsManage {
 		TableColumnModel colModel = table.getColumnModel();
 		colModel.getColumn(0).setPreferredWidth(10);
 		colModel.getColumn(1).setPreferredWidth(30);
-		colModel.getColumn(2).setPreferredWidth(55);
+		colModel.getColumn(2).setPreferredWidth(70);
 		colModel.getColumn(3).setPreferredWidth(50);
 		colModel.getColumn(4).setPreferredWidth(50);
 		colModel.getColumn(5).setPreferredWidth(50);
@@ -412,9 +430,9 @@ public class PatientsManage {
 		colModel.getColumn(8).setPreferredWidth(50);
 		colModel.getColumn(9).setPreferredWidth(50);
 
-		table.getTableHeader().setFont(new Font("맑은 고딕", Font.BOLD, 13));  	// header 폰트 설정
-		table.getTableHeader().setPreferredSize(new Dimension(100, 30));		// header 넓이, 높이 
-		table.setFont(new Font("맑은 고딕", Font.PLAIN, 13));                 		// 셀 폰트, 크기
+		table.getTableHeader().setFont(new Font("나눔스퀘어", Font.BOLD, 13));  	// header 폰트 설정
+		table.getTableHeader().setPreferredSize(new Dimension(150, 35));		// header 넓이, 높이 
+		table.setFont(new Font("나눔스퀘어", Font.PLAIN, 14));                 		// 셀 폰트, 크기
 		table.setRowHeight(30);
 		//table.setAlignmentX(0);
 		
