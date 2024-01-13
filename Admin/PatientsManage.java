@@ -33,7 +33,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
 public class PatientsManage {
-
+	
 	public JFrame frame;
 	private JTextField searchTextField;
 	private DefaultTableModel tableModel;  // 테이블 데이터 편집하기 위해 필요
@@ -66,6 +66,7 @@ public class PatientsManage {
 	private JPanel panelMedium;
 	private JPanel panelBottom;
 	private JPanel tablePanel;
+	
 	private Patients patients;
 	private String[][] data;
 
@@ -104,31 +105,36 @@ public class PatientsManage {
 		/* 패널 배치하기 */
 		frame = new JFrame("환자 관리");    						// 메인 프레임
 		frame.setSize(1500, 800);								// 프레임 크기
+		frame.setBackground(Color.WHITE);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	// 종료 버튼 누르면 프로그램 종료
 		frame.setLocationRelativeTo(null);						// 프레임을 화면 중앙에 배치
 		frame.setResizable(false);								// 프레임 크기를 변경하지 못하도록 설정
 		frame.getContentPane().setLayout(null);					// 프레임에 추가되는 컴포넌트 레이아웃 -> Absolute
 
 		panelTop = new JPanel();								// 상단 패널
-		panelTop.setBounds(1, 1, 1400, 55);						// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
+		panelTop.setBackground(Color.WHITE);
+		panelTop.setBounds(1, 1, 1500, 80);						// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
 		panelTop.setLayout(null);								// 상단 패널에 추가되는 컴포넌트 레이아웃 -> Absolute
 		frame.getContentPane().add(panelTop);					// 프레임에 추가하기
 		panelTop.setVisible(true);								// 패널 보이기
 		
 		panelMedium = new JPanel();								// 중간 패널
-		panelMedium.setBounds(10, 75, 1400, 300);				// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
+		panelMedium.setBackground(Color.WHITE);
+		panelMedium.setBounds(1, 75, 1500, 300);				// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
 		panelMedium.setLayout(null);							// 상단 패널에 추가되는 컴포넌트 레이아웃 -> Absolute
 		frame.getContentPane().add(panelMedium);				// 프레임에 추가하기
 		panelMedium.setVisible(true);							// 패널 보이기
 
 		panelBottom = new JPanel();								// 하단 패널
-		panelBottom.setBounds(6, 372, 1400, 354);				// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
+		panelBottom.setBackground(Color.WHITE);
+		panelBottom.setBounds(1, 372, 1500, 400);				// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
 		panelBottom.setLayout(null);							// 하단 패널에 추가되는 컴포넌트 레이아웃 -> Absolute
 		frame.getContentPane().add(panelBottom);				// 프레임에 추가하기
 		panelBottom.setVisible(false);  						// 하단 패널 가리기
 
 		tablePanel = new JPanel();								// 테이블 패널 생성
-		tablePanel.setBounds(10, 130, 1300, 170);				// 테이블 패널 위치와 크기
+		tablePanel.setBackground(Color.WHITE);
+		tablePanel.setBounds(1, 130, 1300, 150);				// 테이블 패널 위치와 크기
 		frame.getContentPane().add(tablePanel);					// 테이블 패널 추가
 
 
@@ -156,7 +162,7 @@ public class PatientsManage {
 		JLabel Label = new JLabel("MediHub");
 		Label.setBackground(new Color(240, 240, 240));
 		Label.setBounds(10, 3, 236, 55);
-		Label.setForeground(new Color(57, 194, 46));
+		Label.setForeground(new Color(0, 255, 128));
 		Label.setFont(new Font("맑은 고딕", Font.BOLD, 50));
 		panelTop.add(Label);
 		
@@ -373,7 +379,7 @@ public class PatientsManage {
 				return false;
 			}
 		};
-		table.setBounds(50, 50, 1005, 255);
+		table.setBounds(50, 50, 1010, 270);
 
 		// 테이블 셀 값들 가운데 정렬하기
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
