@@ -43,8 +43,7 @@ public class KioskMain extends JFrame {
     			@Override
     			public void actionPerformed(ActionEvent e) {
     				dispose();
-    				//new PatientGui();
-    				//new AdminMain();
+    				new PatientGui();
     			}
     	});
     	getContentPane().add(btnrg);
