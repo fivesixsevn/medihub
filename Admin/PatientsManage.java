@@ -207,7 +207,6 @@ public class PatientsManage {
 		details.setBounds(190, 30, 100, 30);
 		panelBottom.add(details);
 		
-		//JLabel label = new JLabel("ID : "); 형식으로 Label 정의한 것들 고쳐야함.
 		idLabel = new JTextField();
 		idLabel.setEditable(false);
 		idLabel.setText(" id ");
