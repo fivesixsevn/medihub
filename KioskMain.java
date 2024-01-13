@@ -39,7 +39,7 @@ public class KioskMain extends JFrame {
     	getContentPane().add(btnrg);
     	
     	/* 접수 메인 화면으로 전환 */
-    	/*btnrg.addActionListener(new ActionListener() {
+    	btnrg.addActionListener(new ActionListener() {
     			@Override
     			public void actionPerformed(ActionEvent e) {
     				dispose();
@@ -47,7 +47,7 @@ public class KioskMain extends JFrame {
     				//new AdminMain();
     			}
     	});
-    	getContentPane().add(btnrg);*/
+    	getContentPane().add(btnrg);
     	
     	/* 수납 버튼 생성 */
     	Button btnpay = new Button("수납");
@@ -59,14 +59,14 @@ public class KioskMain extends JFrame {
     	
     	
     	/* 수납 메인 화면 전환 */
-    	/*btnpay.addActionListener(new ActionListener() {
+    	btnpay.addActionListener(new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			dispose();
 			new Payment();
 			}
 		});
-		getContentPane().add(btnpay);*/
+		getContentPane().add(btnpay);
     	
     	/* 관리자모드 버튼 생성 */
     	Button btnAdmin = new Button("관리자 모드");
