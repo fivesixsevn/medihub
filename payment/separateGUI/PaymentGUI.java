@@ -13,13 +13,14 @@ import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
 import javax.swing.SwingWorker;
 
-public class PaymentGUI extends JFrame {
+public class PaymentGUI extends JFrame { //수납 세 번째 화면
 
 	public PaymentGUI(DataUpdater dataUpdater, DocumentItem patient) {
 
 		setBounds(100,100,1500,800);
 		setBackground(Color.WHITE);
 		setLayout(null);
+		setLocationRelativeTo(null); //window창을 화면 가운데 띄우는 역할
 	
     	JLabel lb3 = new JLabel("결제하기");
         lb3.setFont(new Font("나눔스퀘어 ExtraBold", Font.PLAIN, 28));
@@ -130,5 +131,44 @@ public class PaymentGUI extends JFrame {
             } catch (Exception e) {
             	e.printStackTrace();
             }
+    }
+    private void updateWaiting(String office) { //접근지정자 고민
+        String url = "jdbc:mysql://medihub.cfk4qw22eogv.us-east-1.rds.amazonaws.com:3306/medihub";
+        String username = "admin";
+        String password = "12345678";
+        System.out.println(office);
+        office = office.substring(0,1);
+
+        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+			String query = "select waiting from hospital where office = ?";
+
+            try (PreparedStatement waitingStmt = connection.prepareStatement(query)) {
+				waitingStmt.setString(1, office);
+
+                try (ResultSet resultSet = waitingStmt.executeQuery()) {
+                	int waitingNum = 0; // 기본적으로 0으로 초기화
+                	if (resultSet.next())  {// 결과가 있다면
+                        waitingNum = resultSet.getInt(1) - 1; //현재 대기인수에 -1 하여 서비스 마친 환자 반영
+                        System.out.println("진료실 대기인원 수 ="+waitingNum);
+                	}
+
+                    // 데이터베이스에 대기인원 수를 갱신(감소)하는 쿼리 for 결제까지 완료한 환자 반영
+                    String afterPayQuery = "update hospital set waiting = ? where office = ?";
+                    try (PreparedStatement preparedStatement = connection.prepareStatement(afterPayQuery)) {
+                        preparedStatement.setInt(1, waitingNum);
+                        preparedStatement.setString(2, office);
+
+                        int rowsAffected = preparedStatement.executeUpdate(); 
+                        if (rowsAffected > 0) {
+                            System.out.println("데이터베이스에 성공적으로 저장되었습니다.");
+                        } else {
+                            System.out.println("데이터베이스 저장에 실패하였습니다.");
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
