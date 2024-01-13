@@ -77,7 +77,7 @@ public class PatientsManage {
 
 	public static void main(String[] args) {
 
-		EventQueue.invokeLater(new Runnable() {    // ?? invokeLater 찾기
+		EventQueue.invokeLater(new Runnable() {   
 			public void run() {
 				try {
 					PatientsManage window = new PatientsManage();
@@ -104,38 +104,38 @@ public class PatientsManage {
 
 		/* 패널 배치하기 */
 		frame = new JFrame("환자 관리");    						// 메인 프레임
-		frame.setSize(1500, 800);								// 프레임 크기
+		frame.setSize(1500, 800);							// 프레임 크기
 		frame.setBackground(Color.WHITE);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	// 종료 버튼 누르면 프로그램 종료
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);				// 종료 버튼 누르면 프로그램 종료
 		frame.setLocationRelativeTo(null);						// 프레임을 화면 중앙에 배치
-		frame.setResizable(false);								// 프레임 크기를 변경하지 못하도록 설정
-		frame.getContentPane().setLayout(null);					// 프레임에 추가되는 컴포넌트 레이아웃 -> Absolute
+		frame.setResizable(false);							// 프레임 크기를 변경하지 못하도록 설정
+		frame.getContentPane().setLayout(null);						// 프레임에 추가되는 컴포넌트 레이아웃 -> Absolute
 
-		panelTop = new JPanel();								// 상단 패널
+		panelTop = new JPanel();							// 상단 패널
 		panelTop.setBackground(Color.WHITE);
 		panelTop.setBounds(1, 1, 1500, 80);						// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
-		panelTop.setLayout(null);								// 상단 패널에 추가되는 컴포넌트 레이아웃 -> Absolute
-		frame.getContentPane().add(panelTop);					// 프레임에 추가하기
-		panelTop.setVisible(true);								// 패널 보이기
+		panelTop.setLayout(null);							// 상단 패널에 추가되는 컴포넌트 레이아웃 -> Absolute
+		frame.getContentPane().add(panelTop);						// 프레임에 추가하기
+		panelTop.setVisible(true);							// 패널 보이기
 		
-		panelMedium = new JPanel();								// 중간 패널
+		panelMedium = new JPanel();							// 중간 패널
 		panelMedium.setBackground(Color.WHITE);
-		panelMedium.setBounds(1, 75, 1500, 300);				// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
+		panelMedium.setBounds(1, 75, 1500, 300);					// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
 		panelMedium.setLayout(null);							// 상단 패널에 추가되는 컴포넌트 레이아웃 -> Absolute
-		frame.getContentPane().add(panelMedium);				// 프레임에 추가하기
+		frame.getContentPane().add(panelMedium);					// 프레임에 추가하기
 		panelMedium.setVisible(true);							// 패널 보이기
 
-		panelBottom = new JPanel();								// 하단 패널
+		panelBottom = new JPanel();							// 하단 패널
 		panelBottom.setBackground(Color.WHITE);
-		panelBottom.setBounds(1, 372, 1500, 400);				// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
+		panelBottom.setBounds(1, 372, 1500, 400);					// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
 		panelBottom.setLayout(null);							// 하단 패널에 추가되는 컴포넌트 레이아웃 -> Absolute
-		frame.getContentPane().add(panelBottom);				// 프레임에 추가하기
+		frame.getContentPane().add(panelBottom);					// 프레임에 추가하기
 		panelBottom.setVisible(false);  						// 하단 패널 가리기
 
-		tablePanel = new JPanel();								// 테이블 패널 생성
+		tablePanel = new JPanel();							// 테이블 패널 생성
 		tablePanel.setBackground(Color.WHITE);
-		tablePanel.setBounds(1, 130, 1300, 150);				// 테이블 패널 위치와 크기
-		frame.getContentPane().add(tablePanel);					// 테이블 패널 추가
+		tablePanel.setBounds(1, 130, 1300, 150);					// 테이블 패널 위치와 크기
+		frame.getContentPane().add(tablePanel);						// 테이블 패널 추가
 
 
 		/* 검색 필드 배치하기 */
@@ -144,12 +144,12 @@ public class PatientsManage {
 		btnSearch.setBounds(161, 10, 120, 30);    						// 검색어 입력 레이블 위치와 크기 -> (x좌표, y좌표, 넓이, 높이)
 		btnSearch.setBackground(new Color(32, 178, 170));
 		btnSearch.setForeground(Color.WHITE);
-		panelMedium.add(btnSearch);					 					// 상단 패널에 붙이기
+		panelMedium.add(btnSearch);					 			// 상단 패널에 붙이기
 
-		searchTextField = new JTextField();   		 			// 검색어 입력 텍스트필드 생성
-		searchTextField.setBounds(290, 10, 857, 30);			// 검색어 입력 텍스트필드 위치와 크기
-		searchTextField.setColumns(10);				 			// 검색어 길이 설정 
-		panelMedium.add(searchTextField);				 		// 상단 패널에 붙이기
+		searchTextField = new JTextField();   		 					// 검색어 입력 텍스트필드 생성
+		searchTextField.setBounds(290, 10, 857, 30);						// 검색어 입력 텍스트필드 위치와 크기
+		searchTextField.setColumns(10);				 				// 검색어 길이 설정 
+		panelMedium.add(searchTextField);				 			// 상단 패널에 붙이기
 		
 		searchTextField.addKeyListener(new KeyAdapter() {    	// 검색어 입력 텍스트필드 이벤트
 			public void keyReleased(KeyEvent e) {
