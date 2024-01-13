@@ -29,7 +29,7 @@ public class Patients {
 	            preparedStatement.setString(8, medicine);
 	            preparedStatement.setString(9, doses);
 	            preparedStatement.setString(10, fee);
-	            preparedStatement.setString(11, id);
+	            preparedStatement.setString(11, id);    //조건에 있는 ? 까지 받아야했음~~
 	            
 	            // 수정된 데이터베이스 업데이트 쿼리 실행
                 preparedStatement.executeUpdate();
