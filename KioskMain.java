@@ -37,7 +37,7 @@ public class KioskMain extends JFrame {
     	btnrg.setBounds(110, 153, 300, 300);
     	getContentPane().add(btnrg);
     	
-    	/*btnrg.addActionListener(new ActionListener() {
+    	btnrg.addActionListener(new ActionListener() {
     			@Override
     			public void actionPerformed(ActionEvent e) {
     				dispose();
@@ -45,7 +45,7 @@ public class KioskMain extends JFrame {
     				//new AdminMain();
     			}
     	});
-    	getContentPane().add(btnrg);*/
+    	getContentPane().add(btnrg);
     	
     	/* 관리자모드 버튼 생성 */
     	Button btnAdmin = new Button("관리자 모드");
