@@ -3,6 +3,7 @@ package oop_kiosk_medihub;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,19 +17,6 @@ import javax.swing.JTextField;
 
 public class AdminMain extends JFrame {
 	public JFrame frame;
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AdminMain window = new AdminMain();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	public AdminMain() {
 		initialize();
@@ -38,32 +26,41 @@ public class AdminMain extends JFrame {
 		frame = new JFrame();
 		frame.setTitle("AdminLogin");
 		frame.setBounds(100, 100, 1500, 800);
+		frame.setBackground(Color.WHITE);
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		LinePanel linePanel = new LinePanel();
+		add(linePanel);
+		
 		JPanel startPage = new JPanel();
-		startPage.setBackground(new Color(234, 255, 239));
+		startPage.setBackground(Color.WHITE);
 		startPage.setBounds(0, 0, 1500, 800);
 		frame.getContentPane().add(startPage);
+		
 		JLabel label = new JLabel("ID : ");
-		label.setBounds(441, 294, 61, 55);
-		label.setFont(new Font("맑은 고딕", Font.BOLD, 30));
+		label.setBounds(541, 294, 61, 55);
+		label.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 30));
+		
 		JLabel pawrd = new JLabel("PASSWORD : ");
-		pawrd.setBounds(303, 380, 201, 55);
-		pawrd.setFont(new Font("맑은 고딕", Font.BOLD, 30));
+		pawrd.setBounds(403, 380, 220, 55);
+		pawrd.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 30));
+		
 		JTextField txtID = new JTextField(10);
-		txtID.setBounds(506, 294, 236, 55);
+		txtID.setBounds(606, 294, 236, 55);
+		
 		JPasswordField txtPass = new JPasswordField(10);
-		txtPass.setBounds(506, 380, 236, 55);
+		txtPass.setBounds(606, 380, 236, 55);
+		
 		startPage.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("MediHub");
 		lblNewLabel.setBackground(new Color(240, 240, 240));
-		lblNewLabel.setBounds(25, 23, 236, 55);
-		lblNewLabel.setForeground(new Color(57, 194, 46));
-		lblNewLabel.setFont(new Font("맑은 고딕", Font.BOLD, 50));
+		lblNewLabel.setBounds(15, 15, 236, 55);
+		lblNewLabel.setForeground(new Color(32, 178, 170));
+		lblNewLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 50));
 		startPage.add(lblNewLabel);
 		
 		startPage.add(label);
@@ -72,27 +69,48 @@ public class AdminMain extends JFrame {
 		startPage.add(txtPass);
 		
 		JPanel endPage = new JPanel();
-		endPage.setBackground(new Color(234, 255, 239));
+		endPage.setBackground(Color.WHITE);
 		endPage.setBounds(0, 0, 1500, 800);
 		frame.getContentPane().add(endPage);
 		
 		JButton btnNext = new JButton("로그인");
-		btnNext.setBounds(640, 505, 155, 73);
-		btnNext.setFont(new Font("맑은 고딕", Font.BOLD, 26));
+		btnNext.setBounds(740, 505, 155, 73);
+		btnNext.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 26));
+		btnNext.setBackground(new Color(32, 178, 170));
+		btnNext.setForeground(Color.WHITE);
 		startPage.add(btnNext);
 		
 		JLabel lblNewLabel_1 = new JLabel("관리자 전용 페이지입니다.");
-		lblNewLabel_1.setBounds(406, 190, 408, 83);
-		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 33));
+		lblNewLabel_1.setBounds(506, 190, 408, 83);
+		lblNewLabel_1.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 33));
 		startPage.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("<홈 화면으로");
-		btnNewButton.setBounds(391, 505, 207, 73);
-		btnNewButton.setFont(new Font("맑은 고딕", Font.BOLD, 26));
+		btnNewButton.setBounds(491, 505, 207, 73);
+		btnNewButton.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 26));
+		btnNewButton.setBackground(new Color(32, 178, 170));
+		btnNewButton.setForeground(Color.WHITE);
 		startPage.add(btnNewButton);
 		
+		btnNewButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+	                public void run() {
+	                    try {
+	                        KioskMain kioskmain = new KioskMain();
+	                        frame.setVisible(false);
+	                        kioskmain.frame.setVisible(true);
+	                    } catch (Exception e) {
+	                        e.printStackTrace();
+	                    }
+	                }
+	            });
+			}
+		});
+		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
+		panel.setBackground(Color.WHITE);
 		panel.setBounds(247, 160, 723, 458);
 		startPage.add(panel);
 		
