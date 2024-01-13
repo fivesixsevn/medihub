@@ -34,10 +34,10 @@ public class KioskMain extends JFrame {
     	btnrg.setForeground(Color.WHITE);
     	btnrg.setFont(new Font("나눔스퀘어 Bold", Font.BOLD, 40));
     	btnrg.setBackground(new Color(0, 255, 128));
-    	btnrg.setBounds(110, 153, 300, 300);
+    	btnrg.setBounds(110, 300, 300, 300);
     	getContentPane().add(btnrg);
     	
-    	btnrg.addActionListener(new ActionListener() {
+    	/*btnrg.addActionListener(new ActionListener() {
     			@Override
     			public void actionPerformed(ActionEvent e) {
     				dispose();
@@ -45,14 +45,14 @@ public class KioskMain extends JFrame {
     				//new AdminMain();
     			}
     	});
-    	getContentPane().add(btnrg);
+    	getContentPane().add(btnrg);*/
     	
     	/* 관리자모드 버튼 생성 */
     	Button btnAdmin = new Button("관리자 모드");
     	btnAdmin.setForeground(Color.WHITE);
     	btnAdmin.setFont(new Font("나눔스퀘어 Bold", Font.BOLD, 20));
     	btnAdmin.setBackground(new Color(0,255,128));
-    	btnAdmin.setBounds(600, 20, 200, 50);
+    	btnAdmin.setBounds(1200, 20, 200, 50);
     	getContentPane().add(btnAdmin);
     	
     	/* 관리자 모드 로그인 화면으로 전환 */
@@ -67,8 +67,20 @@ public class KioskMain extends JFrame {
     	Label Medihub = new Label("Medihub");
     	Medihub.setForeground(new Color(0, 255, 128));
     	Medihub.setFont(new Font("나눔스퀘어 Bold", Font.BOLD, 50));
-    	Medihub.setBounds(60, 30, 400, 100);
+    	Medihub.setBounds(60, 30, 400, 50);
     	getContentPane().add(Medihub);
+    	
+    	Label greetings = new Label("안녕하세요. MediHub입니다.");
+    	greetings.setForeground(Color.BLACK);
+    	greetings.setFont(new Font("나눔스퀘어 Bold", Font.BOLD, 20));
+    	greetings.setBounds(60, 100, 800, 50);
+    	getContentPane().add(greetings);
+    	
+    	Label selecting = new Label("원하시는 항목을 선택해주십시오.");
+    	selecting.setForeground(Color.BLACK);
+    	selecting.setFont(new Font("나눔스퀘어 Bold", Font.BOLD, 30));
+    	selecting.setBounds(300, 200, 800, 50);
+    	getContentPane().add(selecting);
     	
     	setBounds(100,100,1500,800);
     	setLocationRelativeTo(null);
