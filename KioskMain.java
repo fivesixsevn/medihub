@@ -28,7 +28,7 @@ public class KioskMain extends JFrame {
     	/* 접수 버튼 생성 */
     	JButton btnrg = new JButton("접수");
     	btnrg.setForeground(Color.WHITE);
-    	btnrg.setFont(new Font("맑은 고딕", Font.BOLD, 65));
+    	btnrg.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 65));
     	btnrg.setBackground(new Color(32, 178, 170));
     	btnrg.setBounds(110, 300, 300, 300);
     	getContentPane().add(btnrg);
@@ -47,7 +47,7 @@ public class KioskMain extends JFrame {
     	/* 수납 버튼 생성 */
     	JButton btnpay = new JButton("수납");
     	btnpay.setForeground(Color.WHITE);
-    	btnpay.setFont(new Font("맑은 고딕", Font.BOLD, 65));
+    	btnpay.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 65));
     	btnpay.setBackground(new Color(32, 178, 170));
     	btnpay.setBounds(700, 300, 300, 300);
     	getContentPane().add(btnpay);
@@ -58,7 +58,7 @@ public class KioskMain extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			dispose();
-			new Payment();
+			new IdentificationGUI();
 			}
 		});
 		getContentPane().add(btnpay);
@@ -66,7 +66,7 @@ public class KioskMain extends JFrame {
     	/* 관리자모드 버튼 생성 */
     	JButton btnAdmin = new JButton("관리자 모드");
     	btnAdmin.setForeground(Color.BLACK);
-    	btnAdmin.setFont(new Font("맑은 고딕", Font.BOLD, 25));
+    	btnAdmin.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 25));
     	btnAdmin.setBackground(new Color(255, 255, 255));
     	btnAdmin.setBounds(1200, 20, 200, 50);
     	getContentPane().add(btnAdmin);
