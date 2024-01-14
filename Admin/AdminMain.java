@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
 public class AdminMain extends JFrame {
@@ -58,7 +59,7 @@ public class AdminMain extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("MediHub");
 		lblNewLabel.setBackground(new Color(240, 240, 240));
-		lblNewLabel.setBounds(15, 15, 236, 55);
+		lblNewLabel.setBounds(25, 30, 236, 55);
 		lblNewLabel.setForeground(new Color(32, 178, 170));
 		lblNewLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 50));
 		startPage.add(lblNewLabel);
@@ -88,8 +89,8 @@ public class AdminMain extends JFrame {
 		JButton btnNewButton = new JButton("<홈 화면으로");
 		btnNewButton.setBounds(491, 505, 207, 73);
 		btnNewButton.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 26));
-		btnNewButton.setBackground(new Color(32, 178, 170));
-		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(new Color(192, 192, 192));
+		btnNewButton.setForeground(Color.BLACK);
 		startPage.add(btnNewButton);
 		
 		btnNewButton.addActionListener(new ActionListener() {
@@ -108,6 +109,12 @@ public class AdminMain extends JFrame {
 	            });
 			}
 		});
+		
+		// MediHub 아래 구분선 추가(startPage에 추가)
+		JSeparator separator = new JSeparator();
+		separator.setBounds(0, 100, 1500, 5);
+		separator.setForeground(Color.BLACK);
+		startPage.add(separator);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
@@ -142,5 +149,14 @@ public class AdminMain extends JFrame {
 			}
 		});		
 		frame.setVisible(true);
+	}
+}
+
+class LinePanel extends JPanel {
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.setColor(Color.BLACK);
+		g.drawLine(0, 20, 1500, 20);
 	}
 }
