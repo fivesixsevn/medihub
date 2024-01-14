@@ -30,7 +30,7 @@ public class KioskMain extends JFrame {
     	btnrg.setForeground(Color.WHITE);
     	btnrg.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 65));
     	btnrg.setBackground(new Color(32, 178, 170));
-    	btnrg.setBounds(110, 300, 300, 300);
+    	btnrg.setBounds(260, 320, 300, 300);
     	getContentPane().add(btnrg);
     	
     	/* 접수 메인 화면으로 전환 */
@@ -49,7 +49,7 @@ public class KioskMain extends JFrame {
     	btnpay.setForeground(Color.WHITE);
     	btnpay.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 65));
     	btnpay.setBackground(new Color(32, 178, 170));
-    	btnpay.setBounds(700, 300, 300, 300);
+    	btnpay.setBounds(850, 320, 300, 300);
     	getContentPane().add(btnpay);
     	
     	
@@ -68,7 +68,7 @@ public class KioskMain extends JFrame {
     	btnAdmin.setForeground(Color.BLACK);
     	btnAdmin.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 25));
     	btnAdmin.setBackground(new Color(255, 255, 255));
-    	btnAdmin.setBounds(1200, 20, 200, 50);
+    	btnAdmin.setBounds(1250, 20, 180, 50);
     	getContentPane().add(btnAdmin);
     	
     	/* 관리자 모드 로그인 화면으로 전환 */
@@ -82,20 +82,20 @@ public class KioskMain extends JFrame {
     	
     	JLabel Medihub = new JLabel("Medihub");
     	Medihub.setForeground(new Color(32, 178, 170));
-    	Medihub.setFont(new Font("맑은 고딕", Font.BOLD, 50));
-    	Medihub.setBounds(60, 30, 400, 50);
+    	Medihub.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 50));
+    	Medihub.setBounds(30, 30, 400, 50);
     	getContentPane().add(Medihub);
     	
     	JLabel greetings = new JLabel("안녕하세요. MediHub입니다.");
     	greetings.setForeground(Color.BLACK);
-    	greetings.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-    	greetings.setBounds(60, 100, 800, 50);
+    	greetings.setFont(new Font("나눔스퀘어", Font.BOLD, 23));
+    	greetings.setBounds(60, 90, 800, 50);
     	getContentPane().add(greetings);
     	
     	JLabel selecting = new JLabel("원하시는 항목을 선택해주십시오.");
     	selecting.setForeground(Color.BLACK);
-    	selecting.setFont(new Font("맑은 고딕", Font.BOLD, 30));
-    	selecting.setBounds(300, 200, 800, 50);
+    	selecting.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 35));
+    	selecting.setBounds(470, 220, 800, 50);
     	getContentPane().add(selecting);
     	
     	setBounds(100,100,1500,800);
