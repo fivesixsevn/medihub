@@ -1,66 +1,78 @@
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
+import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import javax.swing.SwingWorker;
 
 public class PaymentGUI extends JFrame { //수납 세 번째 화면
 
-	public PaymentGUI(DataUpdater dataUpdater, DocumentItem patient) {
+	public PaymentGUI(DocumentItem patient) {
 
 		setBounds(100,100,1500,800);
 		setBackground(Color.WHITE);
-		setLayout(null);
 		setLocationRelativeTo(null); //window창을 화면 가운데 띄우는 역할
+		getContentPane().setLayout(null);
 	
-    	JLabel lb3 = new JLabel("결제하기");
-        lb3.setFont(new Font("나눔스퀘어 ExtraBold", Font.PLAIN, 28));
-        lb3.setBounds(100, 100, 163, 43);
+		JLabel topLabel = new JLabel("MediHub");
+        topLabel.setBounds(15, 15,240,55);
+        topLabel.setForeground(new Color(32, 178, 170));
+        topLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 50));
+        topLabel.setHorizontalAlignment(JLabel.CENTER);
+        topLabel.setAlignmentX(Component.CENTER_ALIGNMENT); // 가운데 정렬 추가
+        getContentPane().add(topLabel);
+        
+        JSeparator separator = new JSeparator();
+		separator.setBounds(0, 90, 1500, 2);
+		getContentPane().add(separator);
+		
+		JLabel lb3 = new JLabel("결제하기");
+		lb3.setBounds(640, 140, 163, 43);
+        lb3.setFont(new Font("나눔스퀘어 ExtraBold", Font.PLAIN, 33));
         getContentPane().add(lb3);
         
         JLabel lb_selection = new JLabel("결제 수단을 선택하세요.");
-        lb_selection.setFont(new Font("나눔스퀘어 Bold", Font.PLAIN, 25));
-        lb_selection.setBounds(100, 162, 423, 43);
+        lb_selection.setBounds(580, 200, 423, 43);
+        lb_selection.setFont(new Font("나눔스퀘어", Font.PLAIN, 25));
         getContentPane().add(lb_selection);
         
         JButton btnCard = new JButton("카드 결제");        
-        btnCard.setFont(new Font("나눔스퀘어 Bold", Font.PLAIN, 24));
-        btnCard.setBounds(100, 250, 137, 120);
+        btnCard.setBounds(480, 260, 200, 200);
+        btnCard.setFont(new Font("나눔스퀘어 ExtraBold", Font.PLAIN, 29));
         btnCard.setBackground(new Color(27, 188, 155));
+        
         JButton btnEPay = new JButton("간편 결제");
-        btnEPay.setFont(new Font("나눔스퀘어 Bold", Font.PLAIN, 24));
-        btnEPay.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	}
-        });
-        btnEPay.setBounds(250, 250, 129, 120);
+        btnEPay.setBounds(710, 260, 200, 200);
+        btnEPay.setFont(new Font("나눔스퀘어 ExtraBold", Font.PLAIN, 29));
         btnEPay.setEnabled(false);
         
         JProgressBar pgBar = new JProgressBar();
+        pgBar.setBounds(485, 485, 420, 17);
         pgBar.setForeground(new Color(27, 188, 155));
-        pgBar.setLocation(100, 391);
-        pgBar.setSize(279, 17);
         pgBar.setStringPainted(true); //문자열로 퍼센트 표시
-    
+        
         JLabel lb_completion = new JLabel("결제가 완료되었습니다 !");
+        lb_completion.setBounds(550, 520, 272, 32);
+        lb_completion.setText(patient.getAmount()+"(원) 결제가 완료되었습니다 !");
         lb_completion.setHorizontalAlignment(SwingConstants.CENTER);
         lb_completion.setForeground(new Color(0, 0, 0));
-        lb_completion.setFont(new Font("나눔스퀘어 Light", Font.PLAIN, 20));
-        lb_completion.setBounds(100, 418, 272, 32);
-    
+        lb_completion.setFont(new Font("나눔스퀘어", Font.PLAIN, 18));
+        
         JButton btnPrescription = new JButton("처방전 확인");
-        btnPrescription.setFont(new Font("나눔스퀘어 Bold", Font.PLAIN, 24));
-        btnPrescription.setBounds(145, 461, 181, 96);
-    
+        btnPrescription.setBounds(600, 580, 200, 120);
+        btnPrescription.setFont(new Font("나눔스퀘어 ExtraBold", Font.PLAIN, 25));
+        
         pgBar.setVisible(false);  //초기 상태 = 안보이게
         lb_completion.setVisible(false); 
         btnPrescription.setVisible(false);
@@ -82,14 +94,18 @@ public class PaymentGUI extends JFrame { //수납 세 번째 화면
                         }
                         return null;
                     }
+                    
                     @Override
                     protected void done() {
                         lb_completion.setVisible(true);
                         btnPrescription.setVisible(true);
                     }
+                    
                 };
-                worker.execute();            }
-        });        
+                worker.execute();
+            }
+        });    
+        
         getContentPane().add(btnCard);
         getContentPane().add(btnEPay);
         getContentPane().add(pgBar);
@@ -97,17 +113,17 @@ public class PaymentGUI extends JFrame { //수납 세 번째 화면
         getContentPane().add(btnPrescription);
         btnPrescription.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (patient != null) {
+	            			updatePaymentState(patient.getID());
+	            			updateWaiting(patient.getOffice());
+	            		}
 				dispose();
-				new PrescriptionGUI(dataUpdater, patient);
+				new PrescriptionGUI(patient);
 			}
 		});
+        
         setVisible(true);
-        if (patient != null) {
-            //onDataUpdate(patient);
-        	updatePaymentState(patient.getID());
-        }
-    }
-  
+	}
     private void updatePaymentState(int idNum) { //접근지정자 고민 // 매개변수로 getID()를 넘겨주게 호출
         String url = "jdbc:mysql://medihub.cfk4qw22eogv.us-east-1.rds.amazonaws.com:3306/medihub";
         String username = "admin";
@@ -149,7 +165,7 @@ public class PaymentGUI extends JFrame { //수납 세 번째 화면
                 	int waitingNum = 0; // 기본적으로 0으로 초기화
                 	if (resultSet.next())  {// 결과가 있다면
                         waitingNum = resultSet.getInt(1) - 1; //현재 대기인수에 -1 하여 서비스 마친 환자 반영
-                        System.out.println("진료실 대기인원 수 ="+waitingNum);
+                        System.out.println(office+" 진료실 대기인원 수 ="+waitingNum);
                 	}
 
                     // 데이터베이스에 대기인원 수를 갱신(감소)하는 쿼리 for 결제까지 완료한 환자 반영
