@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
 import javax.swing.JTable;
 
 import javax.swing.JTextField;
@@ -77,7 +78,7 @@ public class PatientsManage {
 
 	public static void main(String[] args) {
 
-		EventQueue.invokeLater(new Runnable() {   
+		EventQueue.invokeLater(new Runnable() {    // ?? invokeLater 찾기
 			public void run() {
 				try {
 					PatientsManage window = new PatientsManage();
@@ -104,52 +105,61 @@ public class PatientsManage {
 
 		/* 패널 배치하기 */
 		frame = new JFrame("환자 관리");    						// 메인 프레임
-		frame.setSize(1500, 800);							// 프레임 크기
+		frame.setSize(1500, 800);								// 프레임 크기
 		frame.setBackground(Color.WHITE);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);				// 종료 버튼 누르면 프로그램 종료
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	// 종료 버튼 누르면 프로그램 종료
 		frame.setLocationRelativeTo(null);						// 프레임을 화면 중앙에 배치
-		frame.setResizable(false);							// 프레임 크기를 변경하지 못하도록 설정
-		frame.getContentPane().setLayout(null);						// 프레임에 추가되는 컴포넌트 레이아웃 -> Absolute
+		frame.setResizable(false);								// 프레임 크기를 변경하지 못하도록 설정
+		frame.getContentPane().setLayout(null);					// 프레임에 추가되는 컴포넌트 레이아웃 -> Absolute
 
-		panelTop = new JPanel();							// 상단 패널
+		panelTop = new JPanel();								// 상단 패널
 		panelTop.setBackground(Color.WHITE);
-		panelTop.setBounds(1, 1, 1500, 80);						// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
-		panelTop.setLayout(null);							// 상단 패널에 추가되는 컴포넌트 레이아웃 -> Absolute
-		frame.getContentPane().add(panelTop);						// 프레임에 추가하기
-		panelTop.setVisible(true);							// 패널 보이기
+		panelTop.setBounds(1, 1, 1500, 100);						// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
+		panelTop.setLayout(null);								// 상단 패널에 추가되는 컴포넌트 레이아웃 -> Absolute
+		frame.getContentPane().add(panelTop);					// 프레임에 추가하기
+		panelTop.setVisible(true);								// 패널 보이기
 		
-		panelMedium = new JPanel();							// 중간 패널
+		panelMedium = new JPanel();								// 중간 패널
 		panelMedium.setBackground(Color.WHITE);
-		panelMedium.setBounds(1, 75, 1500, 300);					// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
+		panelMedium.setBounds(1, 100, 1500, 301);				// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
 		panelMedium.setLayout(null);							// 상단 패널에 추가되는 컴포넌트 레이아웃 -> Absolute
-		frame.getContentPane().add(panelMedium);					// 프레임에 추가하기
+		frame.getContentPane().add(panelMedium);				// 프레임에 추가하기
 		panelMedium.setVisible(true);							// 패널 보이기
 
-		panelBottom = new JPanel();							// 하단 패널
+		panelBottom = new JPanel();								// 하단 패널
 		panelBottom.setBackground(Color.WHITE);
-		panelBottom.setBounds(1, 372, 1500, 400);					// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
+		panelBottom.setBounds(1, 372, 1500, 400);				// 패널 위치와 크기  -> (x좌표, y좌표, 넓이, 높이)
 		panelBottom.setLayout(null);							// 하단 패널에 추가되는 컴포넌트 레이아웃 -> Absolute
-		frame.getContentPane().add(panelBottom);					// 프레임에 추가하기
+		frame.getContentPane().add(panelBottom);				// 프레임에 추가하기
 		panelBottom.setVisible(false);  						// 하단 패널 가리기
 
-		tablePanel = new JPanel();							// 테이블 패널 생성
+		tablePanel = new JPanel();								// 테이블 패널 생성
 		tablePanel.setBackground(Color.WHITE);
-		tablePanel.setBounds(1, 130, 1300, 150);					// 테이블 패널 위치와 크기
-		frame.getContentPane().add(tablePanel);						// 테이블 패널 추가
-
+		tablePanel.setBounds(1, 176, 1300, 150);				// 테이블 패널 위치와 크기
+		frame.getContentPane().add(tablePanel);					// 테이블 패널 추가
+		
+		JSeparator separator1 = new JSeparator();
+		separator1.setBounds(0, 90, 1500, 10);
+		separator1.setForeground(Color.BLACK);
+		panelTop.add(separator1);
+		
+		JSeparator separator2 = new JSeparator();
+		separator2.setBounds(0, 300, 1500, 5);
+		separator2.setForeground(Color.BLACK);
+		panelMedium.add(separator2);
 
 		/* 검색 필드 배치하기 */
 		JButton btnSearch = new JButton("검색어 입력"); 	   				// 검색어 입력 레이블을 버튼으로 구현(버튼 모양이 레이블보다 예뻐서)
-		btnSearch.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 15));
-		btnSearch.setBounds(161, 10, 120, 30);    						// 검색어 입력 레이블 위치와 크기 -> (x좌표, y좌표, 넓이, 높이)
+		btnSearch.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
+		btnSearch.setBounds(161, 20, 120, 40);    						// 검색어 입력 레이블 위치와 크기 -> (x좌표, y좌표, 넓이, 높이)
 		btnSearch.setBackground(new Color(32, 178, 170));
 		btnSearch.setForeground(Color.WHITE);
-		panelMedium.add(btnSearch);					 			// 상단 패널에 붙이기
+		panelMedium.add(btnSearch);					 					// 상단 패널에 붙이기
 
-		searchTextField = new JTextField();   		 					// 검색어 입력 텍스트필드 생성
-		searchTextField.setBounds(290, 10, 857, 30);						// 검색어 입력 텍스트필드 위치와 크기
-		searchTextField.setColumns(10);				 				// 검색어 길이 설정 
-		panelMedium.add(searchTextField);				 			// 상단 패널에 붙이기
+		searchTextField = new JTextField();   		 			// 검색어 입력 텍스트필드 생성
+		searchTextField.setBounds(290, 20, 857, 40);			// 검색어 입력 텍스트필드 위치와 크기
+		searchTextField.setColumns(10);				 			// 검색어 길이 설정 
+		panelMedium.add(searchTextField);				 		// 상단 패널에 붙이기
 		
 		searchTextField.addKeyListener(new KeyAdapter() {    	// 검색어 입력 텍스트필드 이벤트
 			public void keyReleased(KeyEvent e) {
@@ -159,25 +169,24 @@ public class PatientsManage {
 				trs.setRowFilter(RowFilter.regexFilter(val));
 			}
 		});
-
 		
 		/* 제목, 버튼 배치하기 */
 		JLabel Label = new JLabel("MediHub");
 		Label.setBackground(new Color(240, 240, 240));
-		Label.setBounds(15, 15, 236, 55);
+		Label.setBounds(25, 25, 230, 55);
 		Label.setForeground(new Color(32, 178, 170));
 		Label.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 50));
 		panelTop.add(Label);
 		
 		btnUpdate = new JButton("수정");
-		btnUpdate.setBounds(952, 220, 130, 30);
+		btnUpdate.setBounds(952, 250, 130, 40);
 		btnUpdate.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
 		btnUpdate.setBackground(new Color(32, 178, 170));
 		btnUpdate.setForeground(Color.WHITE);
 		panelMedium.add(btnUpdate);
 
 		btnDelete = new JButton("삭제");
-		btnDelete.setBounds(1085, 220, 130, 30);
+		btnDelete.setBounds(1085, 250, 130, 40);
 		btnDelete.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
 		btnDelete.setBackground(new Color(32, 178, 170));
 		btnDelete.setForeground(Color.WHITE);
@@ -185,7 +194,7 @@ public class PatientsManage {
 		
 		JButton btnBefore = new JButton("로그아웃");
 		btnBefore.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
-		btnBefore.setBounds(1200, 15, 195, 40);
+		btnBefore.setBounds(1300, 25, 145, 50);
 		btnBefore.setBackground(new Color(32, 178, 170));
 		btnBefore.setForeground(Color.WHITE);
 		panelTop.add(btnBefore);	
@@ -215,23 +224,23 @@ public class PatientsManage {
 		/* 상세정보 관련 Label과 TextField 배치하기 */
 		JLabel details = new JLabel("  상세 정보");
 		details.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 26));
-		details.setBounds(180, 15, 120, 30);
+		details.setBounds(180, 45, 120, 30);
 		panelBottom.add(details);
 		
 		//JLabel label = new JLabel("ID : "); 형식으로 Label 정의한 것들 고쳐야함.
 		idLabel = new JTextField();
 		idLabel.setEditable(false);
 		idLabel.setText(" id ");
-		idLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
-		idLabel.setBounds(190, 70, 130, 40);
+		idLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
+		idLabel.setBounds(190, 100, 130, 40);
 		idLabel.setHorizontalAlignment(JLabel.CENTER);
 		panelBottom.add(idLabel);
 
 		nameLabel = new JTextField();
 		nameLabel.setEditable(false);
-		nameLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
+		nameLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		nameLabel.setText("환 자 이 름");
-		nameLabel.setBounds(190, 120, 130, 40);
+		nameLabel.setBounds(190, 150, 130, 40);
 		nameLabel.setHorizontalAlignment(JLabel.CENTER);
 		panelBottom.add(nameLabel);
 		nameLabel.setColumns(12);
@@ -241,7 +250,7 @@ public class PatientsManage {
 		numberLabel.setText("주 민 번 호");
 		numberLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		numberLabel.setColumns(10);
-		numberLabel.setBounds(190, 170, 130, 40);
+		numberLabel.setBounds(190, 200, 130, 40);
 		numberLabel.setHorizontalAlignment(JLabel.CENTER);
 		panelBottom.add(numberLabel);
 
@@ -250,7 +259,7 @@ public class PatientsManage {
 		medicalreportLabel.setText("진단서 출력여부");
 		medicalreportLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		medicalreportLabel.setColumns(10);
-		medicalreportLabel.setBounds(190, 220, 130, 40);
+		medicalreportLabel.setBounds(190, 250, 130, 40);
 		medicalreportLabel.setHorizontalAlignment(JLabel.CENTER);
 		panelBottom.add(medicalreportLabel);
 		
@@ -259,7 +268,7 @@ public class PatientsManage {
 		paymentLabel.setText("수납 여부");
 		paymentLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		paymentLabel.setColumns(10);
-		paymentLabel.setBounds(190, 270, 130, 40);
+		paymentLabel.setBounds(190, 300, 130, 40);
 		paymentLabel.setHorizontalAlignment(JLabel.CENTER);
 		panelBottom.add(paymentLabel);
 		
@@ -268,7 +277,7 @@ public class PatientsManage {
 		officeLabel.setText("진 료 실");
 		officeLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		officeLabel.setColumns(10);
-		officeLabel.setBounds(513, 70, 130, 40);
+		officeLabel.setBounds(513, 100, 130, 40);
 		officeLabel.setHorizontalAlignment(JLabel.CENTER);
 		panelBottom.add(officeLabel);
 
@@ -277,7 +286,7 @@ public class PatientsManage {
 		diseaseLabel.setText("진단 결과");
 		diseaseLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		diseaseLabel.setColumns(10);
-		diseaseLabel.setBounds(513, 120, 130, 40);
+		diseaseLabel.setBounds(513, 150, 130, 40);
 		diseaseLabel.setHorizontalAlignment(JLabel.CENTER);
 		panelBottom.add(diseaseLabel);
 
@@ -286,7 +295,7 @@ public class PatientsManage {
 		medicineLabel.setText("처 방 약");
 		medicineLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 		medicineLabel.setColumns(10);
-		medicineLabel.setBounds(513, 170, 130, 40);
+		medicineLabel.setBounds(513, 200, 130, 40);
 		medicineLabel.setHorizontalAlignment(JLabel.CENTER);
 		panelBottom.add(medicineLabel);
 		
@@ -295,7 +304,7 @@ public class PatientsManage {
 	    dosesLabel.setText("복 용 횟 수");
 	    dosesLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 	    dosesLabel.setColumns(10);
-	    dosesLabel.setBounds(513, 220, 130, 40);
+	    dosesLabel.setBounds(513, 250, 130, 40);
 	    dosesLabel.setHorizontalAlignment(JLabel.CENTER);
 		panelBottom.add(dosesLabel);
 		
@@ -304,81 +313,81 @@ public class PatientsManage {
 	    feeLabel.setText("금 액");
 	    feeLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 17));
 	    feeLabel.setColumns(10);
-	    feeLabel.setBounds(513, 270, 130, 40);
+	    feeLabel.setBounds(513, 300, 130, 40);
 	    feeLabel.setHorizontalAlignment(JLabel.CENTER);
 		panelBottom.add(feeLabel);
 
 		idTextfield = new JTextField();
 		idTextfield.setBackground(new Color(228, 229, 228));
 		idTextfield.setEditable(false);
-		idTextfield.setBounds(325, 70, 130, 40);
+		idTextfield.setBounds(325, 100, 130, 40);
 		idTextfield.setHorizontalAlignment(JTextField.CENTER);
 		panelBottom.add(idTextfield);
 		idTextfield.setColumns(10);
 		
 		nameTextfield = new JTextField();
-		nameTextfield.setBounds(325, 120, 130, 40);
+		nameTextfield.setBounds(325, 150, 130, 40);
 		nameTextfield.setHorizontalAlignment(JTextField.CENTER);
 		panelBottom.add(nameTextfield);
 		nameTextfield.setColumns(10);
 		
 		numberTextfield = new JTextField();
 		numberTextfield.setColumns(10);
-		numberTextfield.setBounds(325, 170, 130, 40);
+		numberTextfield.setBounds(325, 200, 130, 40);
 		numberTextfield.setHorizontalAlignment(JTextField.CENTER);
 		panelBottom.add(numberTextfield);
 
 		medicalreportTextfield = new JTextField();
 		medicalreportTextfield.setColumns(10);
-		medicalreportTextfield.setBounds(325, 220, 80, 40);
+		medicalreportTextfield.setBounds(325, 250, 80, 40);
 		medicalreportTextfield.setHorizontalAlignment(JTextField.CENTER);
 		panelBottom.add(medicalreportTextfield);
 		
 		paymentTextfield = new JTextField();
 		paymentTextfield.setColumns(10);
-		paymentTextfield.setBounds(325, 270, 80, 40);
+		paymentTextfield.setBounds(325, 300, 80, 40);
 		paymentTextfield.setHorizontalAlignment(JTextField.CENTER);
 		panelBottom.add(paymentTextfield);
 		
 		officeTextfield = new JTextField();
 		officeTextfield.setColumns(10);
-		officeTextfield.setBounds(651, 70, 130, 40);
+		officeTextfield.setBounds(651, 100, 130, 40);
 		officeTextfield.setHorizontalAlignment(JTextField.CENTER);
 		panelBottom.add(officeTextfield);
 
 		diseaseTextfield = new JTextField();
 		diseaseTextfield.setColumns(10);
-		diseaseTextfield.setBounds(651, 120, 130, 40);
+		diseaseTextfield.setBounds(651, 150, 130, 40);
 		diseaseTextfield.setHorizontalAlignment(JTextField.CENTER);
 		panelBottom.add(diseaseTextfield);
 
 		medicineTextfield = new JTextField();
 		medicineTextfield.setColumns(10);
-		medicineTextfield.setBounds(651, 170, 130, 40);
+		medicineTextfield.setBounds(651, 200, 130, 40);
 		medicineTextfield.setHorizontalAlignment(JTextField.CENTER);
 		panelBottom.add(medicineTextfield);
 		
 		dosesTextfield = new JTextField();
 		dosesTextfield.setColumns(10);
-		dosesTextfield.setBounds(651, 220, 130, 40);
+		dosesTextfield.setBounds(651, 250, 130, 40);
 		dosesTextfield.setHorizontalAlignment(JTextField.CENTER);
 		panelBottom.add(dosesTextfield);
 		
 		feeTextfield = new JTextField();
 		feeTextfield.setColumns(10);
-		feeTextfield.setBounds(651, 270, 130, 40);
+		feeTextfield.setBounds(651, 300, 130, 40);
 		feeTextfield.setHorizontalAlignment(JTextField.CENTER);
 		panelBottom.add(feeTextfield);
 
 		btnSave = new JButton("저장");
-		btnSave.setBounds(1085, 33, 130, 30);
+		btnSave.setBounds(1085, 63, 130, 40);
 		btnSave.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
 		btnSave.setBackground(new Color(32, 178, 170));
 		btnSave.setForeground(Color.WHITE);
 		panelBottom.add(btnSave);
 
 		btnCancel = new JButton("취소");
-		btnCancel.setBounds(952, 33, 130, 30);
+		btnCancel.setBounds(952, 63, 130, 40);
 		btnCancel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 20));
 		btnCancel.setBackground(new Color(32, 178, 170));
 		btnCancel.setForeground(Color.WHITE);
@@ -396,7 +405,7 @@ public class PatientsManage {
 				return false;
 			}
 		};
-		table.setBounds(50, 50, 1010, 270);
+		table.setBounds(50, 90, 1010, 270);
 
 		// 테이블 셀 값들 가운데 정렬하기
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
