@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -21,15 +22,28 @@ public class PrescriptionGUI extends JFrame{
 	
 	private LocalDate date = LocalDate.now();
 	
-	public PrescriptionGUI(DataUpdater dataUpdater, DocumentItem patient) {
+	public PrescriptionGUI(DocumentItem patient) {
 		
 		setBounds(100,100,1500,800);
 		setBackground(Color.WHITE);
-		setLayout(null);
+		getContentPane().setLayout(null);
+		setLocationRelativeTo(null); //window창을 화면 가운데 띄우는 역할
+
+		JLabel topLabel = new JLabel("MediHub");
+        topLabel.setBounds(15, 15,240,55);
+        topLabel.setForeground(new Color(32, 178, 170));
+        topLabel.setFont(new Font("나눔스퀘어 ExtraBold", Font.BOLD, 50));
+        topLabel.setHorizontalAlignment(JLabel.CENTER);
+        topLabel.setAlignmentX(Component.CENTER_ALIGNMENT); // 가운데 정렬 추가
+        getContentPane().add(topLabel);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(0, 90, 1500, 2);
+		getContentPane().add(separator);
 		
 		JLabel lb4 = new JLabel("처방전 확인");
-        lb4.setBounds(100, 100, 135, 32);
-        lb4.setFont(new Font("나눔스퀘어 ExtraBold", Font.PLAIN, 28));
+        lb4.setBounds(640, 140, 180, 47);
+        lb4.setFont(new Font("나눔스퀘어 ExtraBold", Font.PLAIN, 33));
         getContentPane().add(lb4);
         
         // 테이블 모델 생성
@@ -41,7 +55,7 @@ public class PrescriptionGUI extends JFrame{
         tableModel.addColumn("내용");
         table.setRowHeight(45);
 		table.setFont(new Font("굴림체", Font.PLAIN, 23));
-		table.setBounds(100, 150, 587, 315);
+		table.setBounds(420, 210, 587, 315);
 		table.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		table.setSurrendersFocusOnKeystroke(true);
 		getContentPane().add(table);       
@@ -52,7 +66,7 @@ public class PrescriptionGUI extends JFrame{
                 Component component = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                 // 5, 6행만 따로 배경색 설정
                 if (row >= 5) {
-                    component.setBackground(Color.YELLOW); // 원하는 배경색
+                    component.setBackground(new Color(252, 247, 188)); // 원하는 배경색
                 } else {
                     component.setBackground(table.getBackground());
                 }
@@ -66,9 +80,9 @@ public class PrescriptionGUI extends JFrame{
         }
         
         JButton btnClose = new JButton("확인");
-        btnClose.setBounds(100, 500, 155, 85);
+        btnClose.setBounds(545, 580, 155, 120);
         btnClose.setBackground(new Color(192, 192, 192));
-        btnClose.setFont(new Font("나눔스퀘어 Bold", Font.PLAIN, 25));
+        btnClose.setFont(new Font("나눔스퀘어 ExtraBold", Font.PLAIN, 25));
         btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -76,9 +90,9 @@ public class PrescriptionGUI extends JFrame{
 			}
 		});
 		JButton btnPharmacy = new JButton("주변 약국 보기");
-		btnPharmacy.setBounds(260, 500, 201, 85);
+		btnPharmacy.setBounds(720, 580, 201, 120);
 		btnPharmacy.setBackground(new Color(27, 188, 155));
-		btnPharmacy.setFont(new Font("나눔스퀘어 Bold", Font.PLAIN, 25));
+		btnPharmacy.setFont(new Font("나눔스퀘어 ExtraBold", Font.PLAIN, 25));
 		btnPharmacy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -91,16 +105,9 @@ public class PrescriptionGUI extends JFrame{
 		
 		setVisible(true);
 		if (patient != null) {
-            //onDataUpdate(patient);
-        	updatePreScription(patient);
-        }
+        		updatePreScription(patient);
+        	}
     }
-//	@Override
-//    public void onDataUpdate(DocumentItem data, DocumentItem patient) {
-//        // 업데이트된 데이터를 사용하여 JTable 모델 업데이트
-//    	updatePreScription(data);
-//    	System.out.println("<패널4>"+data.getName());
-//    }
     private void updatePreScription(DocumentItem data) {
         // JTable 모델 업데이트
         tableModel.setRowCount(0); // 기존 데이터 삭제
