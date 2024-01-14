@@ -430,12 +430,12 @@ public class PatientsManage {
 		TableColumnModel colModel = table.getColumnModel();
 		colModel.getColumn(0).setPreferredWidth(10);
 		colModel.getColumn(1).setPreferredWidth(30);
-		colModel.getColumn(2).setPreferredWidth(70);
+		colModel.getColumn(2).setPreferredWidth(80);
 		colModel.getColumn(3).setPreferredWidth(50);
 		colModel.getColumn(4).setPreferredWidth(50);
 		colModel.getColumn(5).setPreferredWidth(50);
 		colModel.getColumn(6).setPreferredWidth(50);
-		colModel.getColumn(7).setPreferredWidth(50);
+		colModel.getColumn(7).setPreferredWidth(70);
 		colModel.getColumn(8).setPreferredWidth(50);
 		colModel.getColumn(9).setPreferredWidth(50);
 
